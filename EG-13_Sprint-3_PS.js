@@ -64,3 +64,18 @@ var canConstruct = function(ransomNote, magazine) {
 // Test Case: 
 // console.log(canConstruct("aa", "aab"));
 // Expected Output: true
+
+// 05. Majority Element
+var majorityElement = function(nums) {
+    let count = {};
+    let majorityCount = Math.floor(nums.length / 2);
+    for (let num of nums) {
+        count[num] = (count[num] || 0) + 1;
+        if (count[num] > majorityCount) {
+            return num;
+        }
+    }
+};
+// Test Case:
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2])); 
+// Expected Output: 2
