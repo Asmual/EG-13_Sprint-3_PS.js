@@ -109,3 +109,20 @@ var threeSum = function(nums) {
 // console.log(threeSum([-1, 0, 1, 2, -1, -4])); 
 // Expected Output: [[-1,-1,2],[-1,0,1]]
 
+// 07. Subarray Sum Equals K
+var subarraySum = function(nums, k) {
+    let count = 0;
+    let sum = 0;
+    let map = { 0: 1 };
+    for (let num of nums) {
+        sum += num;
+        if (map[sum - k]) {
+            count += map[sum - k];
+        }
+        map[sum] = (map[sum] || 0) + 1;
+    }
+    return count;
+};
+// Test Case: 
+// console.log(subarraySum([1, 1, 1], 2)); 
+// Expected Output: 2
