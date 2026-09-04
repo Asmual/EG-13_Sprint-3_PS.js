@@ -144,3 +144,24 @@ var topKFrequent = function(nums, k) {
 // console.log(topKFrequent([1,1,1,2,2,3], 2)); 
 // Expected Output: [1,2]
 
+// 09. Longest Consecutive Sequence
+var longestConsecutive = function(nums) {
+    if (nums.length === 0) return 0;
+    let set = new Set(nums);
+    let maxLength = 0;
+    for (let num of set) {
+        if (!set.has(num - 1)) {
+            let currentNum = num;
+            let currentLength = 1;
+            while (set.has(currentNum + 1)) {
+                currentNum++;
+                currentLength++;
+            }
+            maxLength = Math.max(maxLength, currentLength);
+        }
+    }
+    return maxLength;
+};
+// Test Case:
+// console.log(longestConsecutive([100, 4, 200, 1, 3, 2])); 
+// Expected Output: 4
