@@ -165,3 +165,29 @@ var longestConsecutive = function(nums) {
 // Test Case:
 // console.log(longestConsecutive([100, 4, 200, 1, 3, 2])); 
 // Expected Output: 4
+
+// 10. Sort Colors
+var sortColors = function(nums) {
+    let low = 0, mid = 0, high = nums.length - 1;
+    while (mid <= high) {
+        if (nums[mid] === 0) {
+            let temp = nums[low];
+            nums[low] = nums[mid];
+            nums[mid] = temp;
+            low++;
+            mid++;
+        } else if (nums[mid] === 1) {
+            mid++;
+        } else {
+            let temp = nums[high];
+            nums[high] = nums[mid];
+            nums[mid] = temp;
+            high--;
+        }
+    }
+};
+// Test Case: 
+// let colors = [2, 0, 2, 1, 1, 0]; sortColors(colors); 
+// console.log(colors); 
+// Expected Output: [0, 0, 1, 1, 2, 2]
+
