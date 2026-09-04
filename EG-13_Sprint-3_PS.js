@@ -126,3 +126,21 @@ var subarraySum = function(nums, k) {
 // Test Case: 
 // console.log(subarraySum([1, 1, 1], 2)); 
 // Expected Output: 2
+
+// 08. Top K Frequent Elements
+var topKFrequent = function(nums, k) {
+    let count = {};
+    for (let num of nums) {
+        count[num] = (count[num] || 0) + 1;
+    }
+    let sorted = Object.keys(count).sort((a, b) => count[b] - count[a]);
+    let result = [];
+    for (let i = 0; i < k; i++) {
+        result.push(Number(sorted[i]));
+    }
+    return result;
+};
+// Test Case: 
+// console.log(topKFrequent([1,1,1,2,2,3], 2)); 
+// Expected Output: [1,2]
+
